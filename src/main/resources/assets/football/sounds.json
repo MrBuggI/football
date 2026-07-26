@@ -1,0 +1,11 @@
+{
+  "kick_ball": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "football:kick_ball",
+        "stream": false
+      }
+    ]
+  }
+}

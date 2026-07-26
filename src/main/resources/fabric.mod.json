@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "${mod_id}",
+	"version": "${version}",
+	"name": "${mod_name}",
+	"description": "${mod_description}",
+	"authors": [
+		"MrBuggI"
+	],
+	"contributors": [
+		"nico (original soccermod - soccer ball)"
+	],
+	"contact": {
+		"homepage": "https://github.com/MrBuggI/football",
+		"sources": "https://github.com/MrBuggI/football"
+	},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.buggi.${mod_id}.${mod_name}Mod"
+		],
+		"client": [
+			"net.buggi.${mod_id}.${mod_name}ModClient"
+		]
+	},
+	"mixins": [
+		"${mod_id}.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.24",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
