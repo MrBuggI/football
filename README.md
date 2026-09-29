@@ -1,57 +1,56 @@
 # Football
 
-> ⚠️ **Статус: бета, в разработке.** Возможны баги и изменения.
+[![Build](https://github.com/MrBuggI/football/actions/workflows/build.yml/badge.svg)](https://github.com/MrBuggI/football/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/MrBuggI/football)](https://github.com/MrBuggI/football/releases/latest)
+![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-62B47A)
+![Loader](https://img.shields.io/badge/loader-Fabric-DBD0B4)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-Мод для Minecraft, добавляющий **футбольный мяч** — сущность, которую можно поставить в мире и пинать.
+Мод для Minecraft, добавляющий **футбольный мяч**: сущность, которую можно поставить в мире и пинать.
 
-## Что он делает
+> **English:** a Fabric 1.20.1 mod that adds a kickable soccer ball entity. Kick it with a hit, push it by running into it. The ball is a port of *soccermod* by nico (MIT).
 
-- Добавляет предмет **«Мяч»** (лежит во вкладке креатива «Инструменты и утилиты»).
-- Ставишь мяч — появляется сущность-мяч, которую можно **пинать ударом** (летит по направлению взгляда) и **толкать телом**, пробегая мимо.
-- При ударе играет звук пинка.
+## Возможности
+
+- Предмет **«Мяч»** во вкладке креатива «Инструменты и утилиты».
+- Поставленный мяч становится сущностью, которую можно **пинать ударом** (летит по направлению взгляда) и **толкать телом**, пробегая мимо.
+- Звук пинка при ударе.
 - Оператор (permission level 2) может подобрать мяч обратно в инвентарь пустой рукой.
 
-> Это урезанная версия — только мяч. Дополнительные механики (команды, голы, музыка и т.п.) в этот репозиторий не входят.
-
-## Технические данные
-
-| Параметр            | Значение                          |
-|---------------------|-----------------------------------|
-| Версия Minecraft    | 1.20.1                            |
-| Загрузчик           | Fabric (Fabric Loader 0.18.4)     |
-| Fabric API          | 0.92.6+1.20.1                     |
-| Требуемая Java      | 17+                               |
-| Версия мода         | 1.0.0 (beta)                      |
-
-**Зависимости:** нужен установленный [Fabric API](https://modrinth.com/mod/fabric-api).
-
-## Сборка
-
-Требуется JDK 17.
-
-```bash
-./gradlew build
-```
-
-Готовый `.jar` появится в `build/libs/`.
-
-Другие команды:
-
-```bash
-./gradlew runClient   # запустить клиент Minecraft с модом для теста
-./gradlew clean       # очистить сборку
-```
+Мод намеренно сфокусирован только на мяче: без команд, голов и музыки.
 
 ## Установка
 
 1. Установите [Fabric Loader](https://fabricmc.net/use/) для Minecraft 1.20.1.
-2. Положите [Fabric API](https://modrinth.com/mod/fabric-api) и собранный `.jar` мода в папку `mods/`.
-3. Запустите игру.
+2. Скачайте `.jar` из раздела [Releases](https://github.com/MrBuggI/football/releases/latest).
+3. Положите его вместе с [Fabric API](https://modrinth.com/mod/fabric-api) в папку `mods/`.
+4. Запустите игру.
+
+## Технические данные
+
+| Параметр         | Значение                      |
+|------------------|-------------------------------|
+| Версия Minecraft | 1.20.1                        |
+| Загрузчик        | Fabric (Fabric Loader 0.18.4) |
+| Fabric API       | 0.92.6+1.20.1                 |
+| Java             | 17+                           |
+| Версия мода      | 1.0.0                         |
+
+## Сборка из исходников
+
+Нужен JDK 17.
+
+```bash
+./gradlew build       # готовый .jar появится в build/libs/
+./gradlew runClient   # запустить клиент Minecraft с модом
+```
+
+Каждый push проверяется сборкой в GitHub Actions, а при публикации тега `v*` собранный `.jar` автоматически прикладывается к релизу.
 
 ## Благодарности
 
-Мяч (код сущности, текстуры и звук пинка) — **порт мода «soccermod» от разработчика nico**, используется под лицензией MIT. Портировал: **MrBuggI**.
+Мяч (код сущности, текстуры и звук пинка) портирован из мода **soccermod** от разработчика nico, используется под лицензией MIT. Портирование на Fabric 1.20.1: **MrBuggI**.
 
 ## Лицензия
 
-Проект распространяется под лицензией [MIT](LICENSE). См. файл LICENSE — там отдельно отмечено происхождение мяча.
+[MIT](LICENSE). В файле LICENSE отдельно указано происхождение мяча.
