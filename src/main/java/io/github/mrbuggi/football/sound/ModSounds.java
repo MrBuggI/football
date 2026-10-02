@@ -1,6 +1,6 @@
-package net.buggi.football.sound;
+package io.github.mrbuggi.football.sound;
 
-import net.buggi.football.FootballMod;
+import io.github.mrbuggi.football.FootballMod;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

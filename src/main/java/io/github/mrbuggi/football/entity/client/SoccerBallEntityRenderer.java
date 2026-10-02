@@ -1,7 +1,7 @@
-package net.buggi.football.entity.client;
+package io.github.mrbuggi.football.entity.client;
 
-import net.buggi.football.FootballMod;
-import net.buggi.football.entity.custom.SoccerBallEntity;
+import io.github.mrbuggi.football.FootballMod;
+import io.github.mrbuggi.football.entity.custom.SoccerBallEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;

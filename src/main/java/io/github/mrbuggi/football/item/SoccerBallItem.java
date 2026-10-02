@@ -1,6 +1,6 @@
-package net.buggi.football.item;
+package io.github.mrbuggi.football.item;
 
-import net.buggi.football.entity.custom.SoccerBallEntity;
+import io.github.mrbuggi.football.entity.custom.SoccerBallEntity;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;

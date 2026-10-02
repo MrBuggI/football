@@ -1,9 +1,9 @@
-package net.buggi.football.entity.client;
+package io.github.mrbuggi.football.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.buggi.football.entity.animations.SoccerBallEntityAnimation;
-import net.buggi.football.entity.custom.SoccerBallEntity;
+import io.github.mrbuggi.football.entity.animations.SoccerBallEntityAnimation;
+import io.github.mrbuggi.football.entity.custom.SoccerBallEntity;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

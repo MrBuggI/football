@@ -1,6 +1,6 @@
-package net.buggi.football.item;
+package io.github.mrbuggi.football.item;
 
-import net.buggi.football.FootballMod;
+import io.github.mrbuggi.football.FootballMod;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -1,4 +1,4 @@
-package net.buggi.football.entity.animations;
+package io.github.mrbuggi.football.entity.animations;
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;

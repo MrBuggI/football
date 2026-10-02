@@ -18,15 +18,12 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.buggi.${mod_id}.${mod_name}Mod"
+			"io.github.mrbuggi.football.FootballMod"
 		],
 		"client": [
-			"net.buggi.${mod_id}.${mod_name}ModClient"
+			"io.github.mrbuggi.football.FootballModClient"
 		]
 	},
-	"mixins": [
-		"${mod_id}.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.14.24",
 		"minecraft": "~1.20.1",

@@ -1,6 +1,6 @@
-package net.buggi.football.entity.client;
+package io.github.mrbuggi.football.entity.client;
 
-import net.buggi.football.FootballMod;
+import io.github.mrbuggi.football.FootballMod;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 

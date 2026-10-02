@@ -1,9 +1,9 @@
-package net.buggi.football;
+package io.github.mrbuggi.football;
 
-import net.buggi.football.entity.ModEntities;
-import net.buggi.football.entity.client.ModModelLayers;
-import net.buggi.football.entity.client.SoccerBallEntityModel;
-import net.buggi.football.entity.client.SoccerBallEntityRenderer;
+import io.github.mrbuggi.football.entity.ModEntities;
+import io.github.mrbuggi.football.entity.client.ModModelLayers;
+import io.github.mrbuggi.football.entity.client.SoccerBallEntityModel;
+import io.github.mrbuggi.football.entity.client.SoccerBallEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;

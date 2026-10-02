@@ -1,8 +1,8 @@
-package net.buggi.football.entity.custom;
+package io.github.mrbuggi.football.entity.custom;
 
-import net.buggi.football.entity.ModEntities;
-import net.buggi.football.item.ModItems;
-import net.buggi.football.sound.ModSounds;
+import io.github.mrbuggi.football.entity.ModEntities;
+import io.github.mrbuggi.football.item.ModItems;
+import io.github.mrbuggi.football.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;

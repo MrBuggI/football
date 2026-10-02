@@ -1,9 +1,9 @@
-package net.buggi.football;
+package io.github.mrbuggi.football;
 
-import net.buggi.football.entity.ModEntities;
-import net.buggi.football.entity.custom.SoccerBallEntity;
-import net.buggi.football.item.ModItems;
-import net.buggi.football.sound.ModSounds;
+import io.github.mrbuggi.football.entity.ModEntities;
+import io.github.mrbuggi.football.entity.custom.SoccerBallEntity;
+import io.github.mrbuggi.football.item.ModItems;
+import io.github.mrbuggi.football.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
