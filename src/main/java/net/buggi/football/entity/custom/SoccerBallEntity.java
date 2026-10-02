@@ -6,12 +6,12 @@ import net.buggi.football.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -26,23 +26,6 @@ import java.util.List;
 
 public class SoccerBallEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
-
-    // Последний игрок, тронувший/пнувший мяч — для засчёта гола и свечения.
-    private String lastKickerName = null;
-    private java.util.UUID lastKickerId = null;
-
-    public String getLastKickerName() {
-        return this.lastKickerName;
-    }
-
-    public java.util.UUID getLastKickerId() {
-        return this.lastKickerId;
-    }
-
-    private void setLastKicker(Player player) {
-        this.lastKickerName = player.getName().getString();
-        this.lastKickerId = player.getUUID();
-    }
 
     public SoccerBallEntity(EntityType<? extends SoccerBallEntity> type, Level level) {
         super(type, level);
@@ -77,29 +60,30 @@ public class SoccerBallEntity extends Animal {
     @Override
     public void tick() {
         super.tick();
-        if (this.level() instanceof ServerLevel serverLevel) {
-            List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(0.5));
-            for (Player player : players) {
-                Vec3 delta = player.getDeltaMovement();
-                double yPush = (delta.x != 0 || delta.z != 0) ? 0.2 : 0.0;
-                this.setYRot(player.getYRot());
-                this.push(delta.x * -15.0, yPush, delta.z * -8.0);
-                this.setLastKicker(player);
-            }
+        if (this.level().isClientSide) {
+            return;
+        }
+        // Игрок, задевший мяч телом, толкает его.
+        List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(0.5));
+        for (Player player : players) {
+            Vec3 delta = player.getDeltaMovement();
+            double yPush = (delta.x != 0 || delta.z != 0) ? 0.2 : 0.0;
+            this.setYRot(player.getYRot());
+            this.push(delta.x * -15.0, yPush, delta.z * -8.0);
         }
     }
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if ("fall".equals(source.getMsgId())) {
+        if (source.is(DamageTypeTags.IS_FALL)) {
             return false;
         }
+        // Удар игрока не наносит урон, а отправляет мяч по направлению взгляда.
         if (source.getEntity() instanceof Player player) {
             Vec3 look = player.getLookAngle();
             this.setYRot(player.getYRot());
             this.push(look.x * 4.0 + 0.3, 0.8, look.z * 4.0 + 0.1);
             this.playSound(ModSounds.SOCCER_BALL, 1.0F, 1.0F);
-            this.setLastKicker(player);
             return false;
         }
         return super.hurt(source, amount);
@@ -113,12 +97,12 @@ public class SoccerBallEntity extends Animal {
             if (!player.hasPermissions(2)) {
                 return InteractionResult.PASS;
             }
-            this.remove(Entity.RemovalReason.DISCARDED);
-            player.getInventory().add(new ItemStack(ModItems.SOCCERBALL));
             if (this.level() instanceof ServerLevel serverLevel) {
+                this.discard();
+                player.getInventory().add(new ItemStack(ModItems.SOCCERBALL));
                 serverLevel.sendParticles(ParticleTypes.POOF, this.getX(), this.getY(), this.getZ(), 1, 0.0, 0.0, 0.0, 0.0);
             }
-            return InteractionResult.SUCCESS;
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
         return super.mobInteract(player, hand);
     }
